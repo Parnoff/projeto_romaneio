@@ -1,0 +1,38 @@
+#imagem-fundo {
+	background-image: url(../img/daf.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#card1 {
+	display: none;
+}
+
+#passar_mouse:hover #card1 {
+	display: block;
+}
+
+#assistente {
+	border-radius: 50px;
+	height: 100px;
+	width: 100px;
+	margin-top: 10px;	
+	margin-bottom: 100px;
+}
+
+.mensagem{
+	background-color: rgb(32, 255, 0);
+	width: 350px;
+	height: 100px;
+	border-top-left-radius: 90px;
+	border-top-right-radius: 90px;
+	border-bottom-right-radius: 90px;
+	margin-left: 70px;
+	margin-top: 10px;
+}
+
+#txt_msg{
+	text-align: left;
+	margin-left: 50px; 
+	margin-top: 10px;
+}

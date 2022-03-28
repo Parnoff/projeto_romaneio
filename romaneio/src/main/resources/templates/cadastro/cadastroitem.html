@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cadastro do Item</title>
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+<!-- Compiled and minified JavaScript -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">	
+</script>
+
+<!-- Adicionando JQuery -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous">
+</script>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+	crossorigin="anonymous">
+</script>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/"> <img src="../img/truck_48.png"
+				alt="" width="48" height="48">
+			</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/">Home</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Cadastrar </a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item" href="/cadastrarcliente">Cliente</a></li>
+							<li><a class="dropdown-item" href="/cadastraritem">Item</a></li>
+							<li><a class="dropdown-item" href="/cadromaneio">Romaneio</a></li>
+						</ul></li>
+
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Consultar </a>
+
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item" href="/listarcliente">Clientes</a></li>
+							<li><a class="dropdown-item" href="/listaritem">Itens</a></li>
+							<li><a class="dropdown-item" href="/listarroma">Romaneios</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<br>
+
+	<main class="layout-assinatura">
+		<div class="container">
+			<form class="row g-3 text-black text-lg-start" th:action="@{/salvaritem}" id="formitem" method="POST" th:object="${itemobj}">
+
+				<div class="col-md-1">
+					<label for="id" class="form-label">ID</label> 
+					<input class="form-control" name="id" th:field="*{id}" id="id" readonly="readonly">
+				</div>
+				<div class="col-md-11">
+					<label for="descricao" class="form-label">Descrição</label> 
+					<input class="form-control" name="descricao" placeholder="Informe a descrição do item." th:field="*{descricao}" id="descricao" type="text" required>
+				</div>
+				<div class="col-md-3">
+					<label for="altura" class="form-label">Altura mm</label> 
+					<input class="form-control" name="altura" placeholder="Quantos milímetros?" th:field="*{altura}" id="altura" required type="number" step="0.01" value="0.00">
+				</div>
+				<div class="col-md-3">
+					<label for="comprimento" class="form-label">Comprimento m</label> 
+					<input class="form-control" name="comprimento" placeholder="Quantos metros?" th:field="*{comprimento}" id="comprimento" required type="number"step="0.01" value="0.00">
+				</div>
+				<div class="col-md-3">
+					<label for="largura" class="form-label">Largura m</label> 
+					<input class="form-control" name="largura" placeholder="Quantos metros?" th:field="*{largura}" id="largura" required type="number" step="0.01" value="0.00">
+				</div>
+				<div class="col-md-3">
+					<label for="valor_unit" class="form-label">Valor Unitário</label> 
+					<input class="form-control" name="valor_unit" placeholder="$" th:field="*{valor_unit}" id="valor_unit" type="number" step="0.01" value="0.00">
+				</div>
+				
+				<div class="col-12">
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>	
+
+			</form>
+		</div>
+		
+		<div class="container" id="passar_mouse">
+			<div id="card1" class="mensagem text-black">
+				<p id="txt_msg">
+					<b>Olá me chamo Luiz! <br> Está com dúvida de como
+						utilizar essa rotina do sistema? Clique aqui, que vou lhe ajudar
+						;)
+					</b>
+				<p>
+			</div>
+			<a href="https://youtu.be/pLv2u0Gg5ws" target="_blank"> <img
+				id='assistente' src="../img/assitente.jpg" alt="" class="img-fluid">
+			</a>
+		</div>
+		
+	</main>
+
+	<footer
+		class="bg-primary text-white text-center text-lg-start footer-dark fixed-bottom">
+		<!-- Copyright -->
+		<div class="text-center p-3">© 2022 Copyright: Luiz Alberto
+			Parnoff</div>
+		<!-- Copyright -->
+	</footer>
+</body>
+</html>
